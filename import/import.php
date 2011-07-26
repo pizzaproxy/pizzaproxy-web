@@ -6,7 +6,7 @@ function microtime_float () {
     return $microtime; 
 } 
 
-$start_time = microtime_float(); 
+$start = microtime_float(); 
 
 $db = new PDO("sqlite:" . dirname(__FILE__) . "/../data/pizza.db");
 
