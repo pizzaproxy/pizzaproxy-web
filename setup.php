@@ -17,7 +17,7 @@ if(php_sapi_name() == 'cli') {
     }
     die;
 }
->
+?>
 <html>
 <head>
 <title>
