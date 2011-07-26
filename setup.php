@@ -11,9 +11,9 @@ $setupok = Database::createTables();
 
 if(php_sapi_name() == 'cli') {
     if($setupok) {
-        echo "Setup OK";
+        echo "Setup OK\n";
     }else{
-        echo "Setup NOT OK";
+        echo "Setup NOT OK\n";
     }
     die;
 }
