@@ -81,6 +81,11 @@ $db->commit();
 
 $end = microtime_float();
 
+if(php_sapi_name() == 'cli') {
+    echo 'Script Execution Time: ' . round($end - $start, 3) . ' seconds';
+    die;
+}
+
 ?>
 <html>
 <head>

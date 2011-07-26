@@ -9,8 +9,15 @@ include dirname(__FILE__) . '/lib/OrderProxy.php';
 
 $setupok = Database::createTables();
 
-?>
-
+if(php_sapi_name() == 'cli') {
+    if($setupok) {
+        echo "Setup OK";
+    }else{
+        echo "Setup NOT OK";
+    }
+    die;
+}
+>
 <html>
 <head>
 <title>
