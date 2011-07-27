@@ -29,7 +29,7 @@ PizzaProxy
       <th>Lieferung erhalten</th>
     </tr>
     <?php foreach ($ordersSummary as $order):?>
-      <tr>
+       <tr>
         <td>
           <b><?php echo $order["numpizza"]?> x </b>Nr. <?php echo $order["menunumber"]?> "<?php echo $order["name"]?>"
           <div class="alternatives">
@@ -52,7 +52,9 @@ PizzaProxy
         </td>
         <td style="vertical-align: top;"><?php echo helper::formatPrice($order["price"])?></td>
         <td style="vertical-align: top;"><?php echo helper::formatPrice($order["numpizza"]*$order["price"])?></td>
-        <td width="20" class="check"><div>&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
+        <?php for ($a = 1; $a <= $order["numpizza"]; $i++):?>
+            <td width="20" class="check"><div>&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
+        <?php endfor;?>
       </tr>
     <?php endforeach;?>
     <tr class="total">
