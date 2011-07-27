@@ -52,7 +52,7 @@ PizzaProxy
         </td>
         <td style="vertical-align: top;"><?php echo helper::formatPrice($order["price"])?></td>
         <td style="vertical-align: top;"><?php echo helper::formatPrice($order["numpizza"]*$order["price"])?></td>
-        <td class="check" align="right">
+        <td class="check">
                 <?php for ($a = 1; $a <= $order["numpizza"]; $a++):?>
                     <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                 <?php endfor;?>
@@ -95,7 +95,7 @@ PizzaProxy
           </ul>
           <?php echo helper::formatPrice($groupedPrices[$order['orderid']])?>
       </td>
-      <td width="20" class="check" align="rigth"><div>&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
+      <td width="20" class="check"><div>&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
     </tr>
     <?php endforeach;?>
 </table>
