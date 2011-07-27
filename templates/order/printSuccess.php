@@ -52,12 +52,10 @@ PizzaProxy
         </td>
         <td style="vertical-align: top;"><?php echo helper::formatPrice($order["price"])?></td>
         <td style="vertical-align: top;"><?php echo helper::formatPrice($order["numpizza"]*$order["price"])?></td>
-        <td>
-            <tr>
+        <td class="check">
                 <?php for ($a = 1; $a <= $order["numpizza"]; $a++):?>
-                    <td width="20" class="check"><div>&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
+                    <div><input type="checkbox" style="display: inline; height: 20px; width: 20px;"></div>
                 <?php endfor;?>
-            </tr>
         </td>
       </tr>
     <?php endforeach;?>
