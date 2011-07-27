@@ -87,10 +87,10 @@ PizzaProxy
           <?php endforeach;?>
         </ul>
       </td>
-      <td style="vertical-align: top;">
+      <td style="vertical-align: top; text-align: right;">
           <ul class="price">
             <?php foreach ($orders as $i => $order) : ?>
-              <li><?php echo helper::formatPrice($order["amount"] * $order["price"])?></li>
+              <li style="text-align:right;"><?php echo helper::formatPrice($order["amount"] * $order["price"])?></li>
             <?php endforeach;?>
           </ul>
           <?php echo helper::formatPrice($groupedPrices[$order['orderid']])?>
