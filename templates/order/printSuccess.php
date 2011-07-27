@@ -54,7 +54,7 @@ PizzaProxy
         <td style="vertical-align: top;"><?php echo helper::formatPrice($order["numpizza"]*$order["price"])?></td>
         <td class="check">
                 <?php for ($a = 1; $a <= $order["numpizza"]; $a++):?>
-                    <div>&nbsp;&nbsp;&nbsp;</div>
+                    <div>&nsbp;&nbsp;&nbsp;&nbsp;</div>
                 <?php endfor;?>
         </td>
       </tr>
