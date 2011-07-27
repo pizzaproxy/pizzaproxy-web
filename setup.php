@@ -23,7 +23,7 @@ if(php_sapi_name() == 'cli') {
 <title>
 PizzaProxy
 </title>
-<meta http-equiv="REFRESH" content="10;url=index.php">
+<meta http-equiv="REFRESH" content="5;url=index.php">
 </head>
 <body>
 <?php if($setupok):?>
