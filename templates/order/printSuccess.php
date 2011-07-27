@@ -75,7 +75,7 @@ PizzaProxy
       <th>Nr.</th>
       <th>ProxyPizza</th>
       <th>Preis</th>
-      <th>Ausgegeben</th>
+      <th align="right">Ausgegeben</th>
     </tr>
     <?php foreach ($groupedOrders as $orderid => $orders):?>
     <tr>
@@ -95,7 +95,7 @@ PizzaProxy
           </ul>
           <?php echo helper::formatPrice($groupedPrices[$order['orderid']])?>
       </td>
-      <td width="20" class="check"><div>&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
+      <td width="20" class="check" align="rigth"><div>&nbsp;&nbsp;&nbsp;&nbsp;</div></td>
     </tr>
     <?php endforeach;?>
 </table>
