@@ -26,7 +26,7 @@ PizzaProxy
       </th>
       <th width="70">Preis</th>
       <th width="70">Total</th>
-      <th style="text-align: right;">Lieferung erhalten</th>
+      <th style="text-align: center;">Lieferung erhalten</th>
     </tr>
     <?php foreach ($ordersSummary as $order):?>
        <tr>
@@ -75,7 +75,7 @@ PizzaProxy
       <th>Nr.</th>
       <th>ProxyPizza</th>
       <th>Preis</th>
-      <th style="text-align: right;">Ausgegeben</th>
+      <th style="text-align: center;">Ausgegeben</th>
     </tr>
     <?php foreach ($groupedOrders as $orderid => $orders):?>
     <tr>
