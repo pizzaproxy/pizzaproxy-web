@@ -1,11 +1,12 @@
 <?php
+$pizzaids = $_POST['pizzaids'];
+$orderid = $_POST['orderid'];
 
-if (key_exists("pizzaids", $_POST)) {
-  
-  if (key_exists("new", $_POST)) {
-    $neworder = Order::addOrder($_POST["pizzaids"]);
-  } else if (key_exists("add", $_POST) && key_exists("orderid", $_POST)) {
-    $neworder = Order::addToExcistingOrder($_POST["pizzaids"],$_POST["orderid"]);
+if (!empty($pizzaids)) {
+  if ($_POST['new']) {
+    $neworder = Order::addOrder($pizzaids);
+  } else if ($_POST['add'] && !empty($orderid)) {
+    $neworder = Order::addToExcistingOrder($pizzaids, $orderid);
   }
 }
 
