@@ -13,6 +13,7 @@ class helper {
   public static function getMissingPizzas($offers,$pizzaServices,$pizzas) {
     $missingPizzas = array();
     //if I would do 3 wrapped loops at work, my boss would kill me ;)
+	// mine too.
     foreach ($offers as $proxy) {
       foreach ($pizzaServices as $service) {
         $exists = false;
