@@ -52,6 +52,7 @@ class Database {
 
     self::pdo()->commit();
 
+	// hell no ... 
     return $r1 !== false && $r2 !== false && $r3 !== false && $r4 !== false && $r5 !== false;
     
   }
