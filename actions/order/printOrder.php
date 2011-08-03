@@ -41,6 +41,7 @@ try {
   $orderProxyAmountLock = array();
   
   //TODO prüfen, ob limit an einzelbestellungen erreicht muss einbfacher gehen... aber der kopf ist gerade voll quark
+  // count($deinarray) => $maxbestellung ? oder wie meinst?
   foreach($orders as $order) {
     if (!in_array($order["orderid"], $orderProxyAmountLock)) {
       $orderProxyAmountLock[] = $order["orderid"];
@@ -66,7 +67,7 @@ try {
 
   $total = 0;
   foreach($ordersSummary as $pizzaOrder) {
-    $total += $pizzaOrder["numpizza"]*$pizzaOrder["price"];
+    $total += $pizzaOrder["numpizza"] * $pizzaOrder["price"];
   }
 
   if (count($limitedOrders > 0)) {
@@ -80,7 +81,7 @@ try {
   
   foreach ($limitedOrders as $order) {
     $groupedOrders[$order['orderid']][] = $order;
-    if (!key_exists($order['orderid'],$groupedPrices))
+    if (!key_exists($order['orderid'], $groupedPrices))
     {
       $groupedPrices[$order['orderid']] = $order['amount'] * $order['price'];
     }
