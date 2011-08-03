@@ -14,6 +14,7 @@ $pizzerientmp = array();
 $pizzentmp = array();
 
 $row = 1;
+// this should be refactored and exluded to a method
 if (($handle = fopen("preise.csv", "r")) !== FALSE) {
 	while (($data = fgetcsv($handle, 4096, ",")) !== FALSE) {
 		$num = count($data);
