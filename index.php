@@ -1,10 +1,13 @@
 <?php
 
+error_reporting(0);
+#error_reporting(E_ALL);
+
 /* Config */
 $config["alternatives_visible"] = 3;
 /* Config */
 
-include dirname(__FILE__) . '/lib/database.php';
+include dirname(__FILE__) . '/lib/Database.php';
 include dirname(__FILE__) . '/lib/Order.php';
 include dirname(__FILE__) . '/lib/OrderProxy.php';
 include dirname(__FILE__) . '/lib/Pizza.php';
@@ -19,7 +22,7 @@ header("Content-Type: text/html; charset=utf-8");
 /*
  * Todo: switch, if constructs are to slow 
  */
-if ($_GET['action'])) {
+if ($_GET['action']) {
   
   if ($_GET["action"] == "admin") {
     include 'actions/admin/index.php';

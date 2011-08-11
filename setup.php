@@ -1,6 +1,6 @@
 <?php
 
-include dirname(__FILE__) . '/lib/database.php';
+include dirname(__FILE__) . '/lib/Database.php';
 include dirname(__FILE__) . '/lib/Order.php';
 include dirname(__FILE__) . '/lib/Pizza.php';
 include dirname(__FILE__) . '/lib/ProxyPizza.php';
