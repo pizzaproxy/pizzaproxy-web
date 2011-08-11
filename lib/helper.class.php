@@ -12,7 +12,7 @@ class helper {
 
   public static function getMissingPizzas($offers,$pizzaServices,$pizzas) {
     $missingPizzas = array();
-    //if I would do 3 wrapped loops at work, my boss would kill me ;)
+    // if I would do 3 wrapped loops at work, my boss would kill me ;)
 	// mine too.
     foreach ($offers as $proxy) {
       foreach ($pizzaServices as $service) {
@@ -29,5 +29,34 @@ class helper {
     }
     return $missingPizzas;
   }
+  
+  /**
+   * password_ssha and password_verify_ssha are included with the kind permission from Alex
+   * 
+   * @author Alex Badent <abadent@gmail.com>
+   * @license http://creativecommons.org/licenses/by-sa/3.0/ Creative Commons Attribution-Share Alike 3.0 Unported
+   * @copyright Copyright &copy; 2010 Alex Badent   
+   */
+  public static function password_ssha($pass) {
+      mt_srand((double)microtime()*1000000);
+      $salt = pack("CCCC", mt_rand(), mt_rand(), mt_rand(), mt_rand());
+      $hash = "{SSHA}" . base64_encode(pack("H*", sha1($pass . $salt)) . $salt);
+      return (string)$hash;
+  }
+  public static function password_verify_ssha($hash, $pass) {
+     $ohash = base64_decode(substr($hash, 6));
+     $osalt = substr($ohash, 20);
+     $ohash = substr($ohash, 0, 20);
+     $nhash = pack("H*", sha1($pass . $osalt));
+     if ($ohash == $nhash) {
+       return TRUE;
+     } else {
+       return FALSE;
+     }
+  }
+  /**
+   * end of foreign code
+   */
+
 
 }
