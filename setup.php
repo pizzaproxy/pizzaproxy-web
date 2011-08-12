@@ -16,7 +16,7 @@ if(php_sapi_name() == 'cli') {
         echo "Event: ".helper::getConfig("event")."\n";
         echo "ApiUser:";
         foreach(helper::getConfig("apiuser") as $username => $password){
-            echo $user." ";
+            echo $username." ";
         }
         echo "\n";
     }else{
