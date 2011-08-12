@@ -1,7 +1,8 @@
 <?php if (count($offers) <= 0):?>
 <center>
-<div style="font-family: curier; background-color: blue; color: white; width: 320px; height: 320px;">
+<div style="font-family: curier; background-color: blue; color: white; width: 320px; height: 310px;">
 <pre>
+
 Score: 25                   Lives: ♥♥♥
  
  
@@ -21,6 +22,7 @@ Space Invaders
 I'll never gonna shoot you
 Come along. Where do I belong?
 Can you take me home?
+
 </pre>
 </div>
 </center>
