@@ -13,6 +13,12 @@ $setupok = Database::createTables();
 if(php_sapi_name() == 'cli') {
     if($setupok) {
         echo "Setup OK\n";
+        echo "Event: ".helper::getConfig("event")."\n";
+        echo "ApiUser:";
+        foreach(helper::getConfig("apiuser") as $username => $password){
+            echo $user." ";
+        }
+        echo "\n";
     }else{
         echo "Setup NOT OK\n";
     }
@@ -28,9 +34,9 @@ PizzaProxy
 </head>
 <body>
 <?php if($setupok):?>
-  Setup erfolgreich! :)
+  Setup OK
 <?php else:?>
-  Oops! Setup fehlgeschlagen :(
+  Oops! NOT OK
 <?php endif;?>
 </body>
 </html>
