@@ -9,7 +9,7 @@ PizzaProxy
 <body>
 <div id="menu">
   <div id="main_menu">
-  <img src="/img/logo.png" style="vertical-align: middle;">
+  <img src="/img/logo.php" style="vertical-align: middle;">
   <a href="/index.php">Home</a>
   <a href="/index.php?action=order">Bestellungen</a>
   <a href="/index.php?action=preorder">Vorbestellungen</a>

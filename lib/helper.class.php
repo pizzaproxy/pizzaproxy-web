@@ -29,6 +29,11 @@ class helper {
     }
     return $missingPizzas;
   }
+
+  public static function getConfig($key) {
+      $config = include 'config.php';
+      return $config[$key];
+  }
   
   /**
    * password_ssha and password_verify_ssha are included with the kind permission from Alex

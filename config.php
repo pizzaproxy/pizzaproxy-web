@@ -2,7 +2,7 @@
 
 return array(
     "event" => "orr2011",
-    "logofile" => "orr.png",
+    "logofile" => "logo.png",
     "apiuser" => 
         array(        
                 "cui" => "f1d2d2f924e986ac86fdf7b36c94bcdf32beec15",
