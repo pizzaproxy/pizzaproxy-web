@@ -31,7 +31,7 @@ class helper {
   }
 
   public static function getConfig($key) {
-      $config = include 'config.php';
+      $config = include dirname(__FILE__).'../config.php';
       return $config[$key];
   }
   
