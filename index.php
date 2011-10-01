@@ -22,7 +22,7 @@ header("Content-Type: text/html; charset=utf-8");
 /*
  * Todo: switch, if constructs are to slow 
  */
-if ($_GET['action']) {
+if (key_exists("action", $_GET)) {
   
   if ($_GET["action"] == "admin") {
     include 'actions/admin/index.php';
@@ -42,7 +42,7 @@ if ($_GET['action']) {
   }
   
 }
-else if ($_POST['action']) {
+else if (key_exists("action", $_POST)) {
   $notemplate = true;
   if ($_POST["action"] == "saveservice") {
     include 'actions/admin/saveService.php';

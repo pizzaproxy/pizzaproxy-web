@@ -14,7 +14,7 @@ if(php_sapi_name() == 'cli') {
     if($setupok) {
         echo "Setup OK\n";
         echo "Event: ".helper::getConfig("event")."\n";
-        echo "ApiUser:";
+        echo "ApiUser: ";
         foreach(helper::getConfig("apiuser") as $username => $password){
             echo $username." ";
         }

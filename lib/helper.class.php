@@ -34,7 +34,19 @@ class helper {
       $config = include dirname(__FILE__).'/../config.php';
       return $config[$key];
   }
-  
+
+  public static function readline($desc) {
+      if(function_exists('readline')){
+          return trim(readline($desc));
+      }else{
+          echo $desc;
+          $fp = fopen("php://stdin", "r");
+          $in = fgets($fp, 4094); // Maximum windows buffer size
+          fclose ($fp);
+          return trim($in);
+      }
+  }
+
   /**
    * password_ssha and password_verify_ssha are included with the kind permission from Alex
    * 

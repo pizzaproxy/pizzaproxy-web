@@ -60,11 +60,11 @@ class Order {
     if (count($ordersInStmt) < 1) {
       throw new Exception("Number of Orders must be greater 0");
     }
-    //sum (". Pizza::TABLE_NAME . ".price) pizzatotal,
+    
     $query = "select ". OrderProxy::TABLE_NAME . ".proxypizzaid as pizzaid,
     		  ". Pizza::TABLE_NAME . ".name as name,
     		  ". Pizza::TABLE_NAME . ".menunumber as menunumber,
-    		  sum (". OrderProxy::TABLE_NAME . ".amount) numpizza,
+    		  ". OrderProxy::TABLE_NAME . ".amount as numpizza,
     		  ". Pizza::TABLE_NAME . ".price as price
     		  from " . Order::TABLE_NAME ."
     		  left join " . OrderProxy::TABLE_NAME ."
@@ -103,7 +103,7 @@ class Order {
     		  ". Pizza::TABLE_NAME . ".menunumber as menunumber,
     		  ". PizzaService::TABLE_NAME .".name as servicename,
     		  ". PizzaService::TABLE_NAME .".phone as phone,
-    		  sum (". OrderProxy::TABLE_NAME . ".amount) numpizza,
+    		  ". OrderProxy::TABLE_NAME . ".amount as numpizza,
     		  ". Pizza::TABLE_NAME . ".price as price
     		  from " . Order::TABLE_NAME ."
     		  left join " . OrderProxy::TABLE_NAME ."

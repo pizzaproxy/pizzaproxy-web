@@ -5,12 +5,24 @@ ob_start();
 try { 
   $ordercount = key_exists("ordercount", $_GET)?$_GET["ordercount"]:10;
 
+  // New Orders
   $orders = Order::getOrders(null, Order::STATUS_WAITING, $ordercount);
-  
+
+  // Last Orders for Round Robin
   $latestOrder = Order::getLatestOrder(Order::STATUS_ORDERED);
-  
+
+  // Get all active Services
   $services = PizzaService::getServices(1);
-  
+
+  echo "<!--";
+  echo "orders:";
+  var_dump($orders);
+  echo "latestOrder:";
+  var_dump($latestOrder);
+  echo "services:";
+  var_dump($services);
+  echo "-->";
+
   $firstActiveService = $services[0];
   $lastActiveService  = $services[count($services)-1];
 
@@ -56,6 +68,13 @@ try {
   $ordersSummary      = Order::getPrintOrders($orderSerivce["id"], $limitedOrders);
   $ordersAlternatives = Order::getPrintOrderAlternatives($orderSerivce["id"], $limitedOrders);
   
+  echo "<!--";
+  echo "orderSummary:";
+  var_dump($ordersSummary);
+  echo "ordersAlternatives:";
+  var_dump($ordersAlternatives);
+  echo "-->";
+
   $alternatives = array();
   
   foreach ($services as $service) {
@@ -97,10 +116,4 @@ try {
 }
 
 $html = ob_get_clean();
-/* Save order */
-/*$filename = "data/".time().".html";
-$handle = fopen($filename, "a+");
-fwrite($handle, $html);
-fclose($handle);
-*/
 echo $html;

@@ -1,4 +1,6 @@
 <?php
+
+
 class Database {
   
   private static $instance = null;
@@ -10,6 +12,7 @@ class Database {
   public static function pdo() { 
     if (self::$instance == null) {
         self::$instance = new PDO("sqlite:" . dirname(__FILE__) . "/../data/" .helper::getConfig("event") . ".db");
+        //echo dirname(__FILE__) . "/../data/" .helper::getConfig("event") . ".db";
     }
     return self::$instance;
   }
