@@ -249,11 +249,11 @@ class Order {
     return $rows;
   }
 
-  public static function markAsPayed(array $orderids) {
+  public static function markAsPayed($orderid) {
 		  
 	$rows = Database::pdo()->exec("update " . Order::TABLE_NAME ."
     set status = ". Database::pdo()->quote(self::STATUS_WAITING) ."
-	where id in (". implode(",", $orderids).")");
+	where id = $orderid");
 
     return $rows;
   }

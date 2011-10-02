@@ -1,5 +1,5 @@
 <?php return array(
-   "event" => "froscon",
+   "event" => "orr2011",
    "logofile" => "logo.png",
    "apiuser" => array(
    ),

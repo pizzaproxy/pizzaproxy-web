@@ -81,6 +81,7 @@ Can you take me home?
     <tr>
       <td colspan="4">
         <input type="submit" name="new" value="Neue Bestellung">
+        <input type="submit" name="preorder" value="Neue Vorbestellung">
         <input type="submit" name="add" value="hinzufügen zu:">
         <select name="orderid">
           <option>...</option>

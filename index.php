@@ -36,6 +36,9 @@ if (key_exists("action", $_GET)) {
   else if ($_GET["action"] == "order") {
     include 'actions/order/index.php';
   }
+  else if ($_GET["action"] == "preorder") {
+    include 'actions/preorder/index.php';
+  }
   else if ($_GET["action"] == "printorder") {
     include 'actions/order/printOrder.php';
     $notemplate = true;
@@ -79,6 +82,12 @@ else if (key_exists("action", $_POST)) {
   }
   else if ($_POST["action"] == "setservicestatus") {
     include 'actions/admin/setServiceStatus.php';
+  }
+   else if ($_POST["action"] == "markaspayed") {
+    include 'actions/preorder/markAsPayed.php';
+  }
+  else if ($_POST["action"] == "deletepreorder") {
+    include 'actions/preorder/deletePreOrder.php';
   }
   
 }
