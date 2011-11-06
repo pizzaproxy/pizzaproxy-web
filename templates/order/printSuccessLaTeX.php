@@ -1,30 +1,26 @@
-\documentstyle{order}
+<?php echo "\documentstyle{order}";
+echo "\begin{document}";
+echo "\header{".$servicename."}{".$servicephone."}";
+echo "\startorder";
 
-\begin{document}
-
-\header{<?php echo $servicename?>}{<?php echo $servicephone?>}
-\startorder
-%
-<?php foreach ($ordersSummary as $order):?>
-\addorder{<?php echo $order["numpizza"]?>}{<?php echo $order["menunumber"]?>}{<?php echo $order["name"]?>}{<?php echo helper::formatPriceLaTeX($order["price"])?>}{<?php echo helper::formatPriceLaTeX($order["numpizza"]*$order["price"])?>}
-<?php if (key_exists($order["pizzaid"], $ordersAlternatives)):?>
-  <?php foreach ($ordersAlternatives[$order["pizzaid"]] as $i => $alternative):?>
-    <?php if ($i >= $config["alternatives_visible"]):?>
-      <?php break;?>
-    <?php endif;?>
-    \alternative{<?php echo $alternative["menunumber"]?>}{<?php echo $alternative["servicename"]?>}{<?php echo $alternative["phone"]?>}
-  <?php endforeach;?>
-<?php endif;?>
-\total{<?php echo helper::formatPriceLaTeX($total)?>}
-\finishorder
-
-\startsummary
-<?php foreach ($groupedOrders as $orderid => $orders):?>
-\neworder{<?php echo $orderid ?>}
-  <?php foreach ($orders as $order) : ?>
-  \additem{<?php echo $order["amount"] ?>}{<?php echo $order["pizzaid"]?>}{<?php echo $order["name"]?>}{<?php echo helper::formatPriceLaTeX($order["amount"] * $order["price"])?>}
-  <?php endforeach;?>
-\calc{<?php echo helper::formatPriceLaTeX($groupedPrices[$order['orderid']])?>}
-<?php endforeach;?>
-\finishsummary
-\end{document}
+foreach ($ordersSummary as $order){
+  echo "\addorder{".$order["numpizza"]."}{".$order["menunumber"]."}{".$order["name"]."}{".helper::formatPriceLaTeX($order["price"])."}{".helper::formatPriceLaTeX($order["numpizza"]*$order["price"])."}";
+  if (key_exists($order["pizzaid"], $ordersAlternatives)){
+   foreach ($ordersAlternatives[$order["pizzaid"]] as $i => $alternative){
+     if ($i >= $config["alternatives_visible"]){break;}
+     echo "\alternative{".$alternative["menunumber"]."}{".$alternative["servicename"]."{}".$alternative["phone"]."}";
+    };
+  };
+};
+echo "\total{".helper::formatPriceLaTeX($total)."}";
+echo "\finishorder";
+echo "\startsummary";
+foreach ($groupedOrders as $orderid => $orders){
+echo "\neworder{".$orderid."}";
+  foreach ($orders as $order){
+    echo "\additem{".$order["amount"]."}{".$order["pizzaid"]."}{".$order["name"]."}{".helper::formatPriceLaTeX($order["amount"] * $order["price"])."}";
+  };
+  echo "\calc{".helper::formatPriceLaTeX($groupedPrices[$order['orderid']])."}";
+};
+echo "\finishsummary";
+echo "\end{document}";
