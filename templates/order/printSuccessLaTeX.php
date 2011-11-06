@@ -8,7 +8,7 @@ foreach ($ordersSummary as $order){
   if (key_exists($order['pizzaid'], $ordersAlternatives)){
    foreach ($ordersAlternatives[$order['pizzaid']] as $i => $alternative){
      if ($i >= $config['alternatives_visible']){break;}
-     echo '\alternative{'.$alternative['menunumber'].'}{'.$alternative['servicename'].'{}'.$alternative['phone'].'}';
+     echo '\alternative{'.$alternative['menunumber'].'}{'.$alternative['servicename'].'}{'.$alternative['phone'].'}';
     };
   };
 };
