@@ -2,13 +2,16 @@
 class helper {
 
   public static function formatPrice($cent) {
-
     $decimal = $cent%100;
-
     if ($decimal == 0) $decimal = "00";
-
     return floor($cent/100) .",$decimal" . " €";
   }
+
+  public static function formatPriceLaTeX($cent) {
+    $decimal = $cent%100;
+    if ($decimal == 0) $decimal = "00";
+    return floor($cent/100) .",$decimal";
+  }  
 
   public static function getMissingPizzas($offers,$pizzaServices,$pizzas) {
     $missingPizzas = array();
