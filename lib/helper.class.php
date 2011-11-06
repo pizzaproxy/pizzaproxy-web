@@ -10,7 +10,7 @@ class helper {
   public static function formatPriceLaTeX($cent) {
     $decimal = $cent%100;
     if ($decimal == 0) $decimal = "00";
-    return floor($cent/100) .",$decimal";
+    return floor($cent/100) .",$decimal"." \euro{}";
   }  
 
   public static function getMissingPizzas($offers,$pizzaServices,$pizzas) {

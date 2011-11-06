@@ -14,15 +14,6 @@ try {
   // Get all active Services
   $services = PizzaService::getServices(1);
 
-/*  echo "<!--";
-  echo "orders:";
-  var_dump($orders);
-  echo "latestOrder:";
-  var_dump($latestOrder);
-  echo "services:";
-  var_dump($services);
-  echo "-->"; */
-
   $firstActiveService = $services[0];
   $lastActiveService  = $services[count($services)-1];
 
@@ -103,7 +94,7 @@ try {
     }
   }
 
-  include 'templates/order/printSuccess.php';
+  include 'templates/order/printSuccessLaTeX.php';
 } catch (Exception $ex) {
   include 'templates/order/printError.php';
 }
