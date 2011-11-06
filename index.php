@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(0);
-#error_reporting(E_ALL);
+#error_reporting(0);
+error_reporting(E_ALL);
 
 /* Config */
 $config["alternatives_visible"] = 3;
