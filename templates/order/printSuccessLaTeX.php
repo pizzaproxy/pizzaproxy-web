@@ -1,26 +1,26 @@
-<?php echo '\documentstyle{order}';
-echo '\begin{document}';
-echo '\header{'.$servicename.'}{'.$servicephone.'}';
-echo '\startorder';
+<?php echo '\documentstyle{order}'."\n";
+echo '\begin{document}'."\n";
+echo '\header{'.$servicename.'}{'.$servicephone.'}'."\n";
+echo '\startorder'."\n";
 
 foreach ($ordersSummary as $order){
-  echo '\addorder{'.$order['numpizza'].'}{'.$order['menunumber'].'}{'.$order['name'].'}{'.helper::formatPriceLaTeX($order['price']).'}{'.helper::formatPriceLaTeX($order['numpizza']*$order['price']).'}';
+  echo '\addorder{'.$order['numpizza'].'}{'.$order['menunumber'].'}{'.$order['name'].'}{'.helper::formatPriceLaTeX($order['price']).'}{'.helper::formatPriceLaTeX($order['numpizza']*$order['price']).'}'."\n";
   if (key_exists($order['pizzaid'], $ordersAlternatives)){
    foreach ($ordersAlternatives[$order['pizzaid']] as $i => $alternative){
      if ($i >= $config['alternatives_visible']){break;}
-     echo '\alternative{'.$alternative['menunumber'].'}{'.$alternative['servicename'].'}{'.$alternative['phone'].'}';
+     echo '\alternative{'.$alternative['menunumber'].'}{'.$alternative['servicename'].'}{'.$alternative['phone'].'}'."\n";
     };
   };
 };
-echo '\total{'.helper::formatPriceLaTeX($total).'}';
-echo '\finishorder';
-echo '\startsummary';
+echo '\total{'.helper::formatPriceLaTeX($total).'}'."\n";
+echo '\finishorder'."\n";
+echo '\startsummary'."\n";
 foreach ($groupedOrders as $orderid => $orders){
-echo '\neworder{'.$orderid.'}';
+echo '\neworder{'.$orderid.'}'."\n";
   foreach ($orders as $order){
-    echo '\additem{'.$order['amount'].'}{'.$order['pizzaid'].'}{'.$order['name'].'}{'.helper::formatPriceLaTeX($order['amount'] * $order['price']).'}';
+    echo '\additem{'.$order['amount'].'}{'.$order['pizzaid'].'}{'.$order['name'].'}{'.helper::formatPriceLaTeX($order['amount'] * $order['price']).'}'."\n";
   };
-  echo '\calc{'.helper::formatPriceLaTeX($groupedPrices[$order['orderid']]).'}';
+  echo '\calc{'.helper::formatPriceLaTeX($groupedPrices[$order['orderid']]).'}'."\n";
 };
-echo '\finishsummary';
+echo '\finishsummary'."\n";
 echo '\end{document}';

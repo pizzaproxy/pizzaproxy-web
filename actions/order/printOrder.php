@@ -95,10 +95,14 @@ try {
   }
 
   include 'templates/order/printSuccessLaTeX.php';
+  $ok = 1;
 } catch (Exception $ex) {
   include 'templates/order/printError.php';
+  $ok = 0;
 }
 
 $html = ob_get_clean();
+
+
 
 echo $html;
