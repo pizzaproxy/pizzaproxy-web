@@ -100,9 +100,20 @@ try {
   include 'templates/order/printError.php';
   $ok = 0;
 }
-
-$html = ob_get_clean();
-
+if($ok == 1){
+	$latex = ob_get_clean();
+	$html = '<html><body><script type="text/javascript">window.close();<script></body></html>';
+	$latexorderids = array();
+	foreach ($limitedOrders as $order){
+	  $latexorderids[] = $order["orderid"];
+	}
+	Order::markAsOrdered($latexorderids,$orderSerivce["id"]);
+	$fp = fopen('/data/'.implode("-",$latexorderids).'.tex', 'w+');
+	fwrite($fp, $latex);
+	fclose($fp);
+}else{
+	$html = ob_get_clean();
+}
 
 
 echo $html;
