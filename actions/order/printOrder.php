@@ -108,9 +108,11 @@ if($ok == 1){
 	  $latexorderids[] = $order["orderid"];
 	}
 	Order::markAsOrdered($latexorderids,$orderSerivce["id"]);
-	$fp = fopen('data/'.implode("-",$latexorderids).'.tex', 'w+');
+	$idstring = implode("-",$latexorderids);
+	$fp = fopen('data/zettel/'.$idstring.'.tex', 'w+');
 	fwrite($fp, $latex);
 	fclose($fp);
+	system("cd data/zettel/; pdflatex $idstring.tex; rm *.log; rm *.aux;");
 }else{
 	$html = ob_get_clean();
 }
