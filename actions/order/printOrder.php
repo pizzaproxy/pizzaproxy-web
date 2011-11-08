@@ -108,7 +108,7 @@ if($ok == 1){
 	  $latexorderids[] = $order["orderid"];
 	}
 	Order::markAsOrdered($latexorderids,$orderSerivce["id"]);
-	$fp = fopen('/data/'.implode("-",$latexorderids).'.tex', 'w+');
+	$fp = fopen('data/'.implode("-",$latexorderids).'.tex', 'w+');
 	fwrite($fp, $latex);
 	fclose($fp);
 }else{
