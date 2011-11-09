@@ -16,7 +16,7 @@ class Bon {
 	
 		$total = 0;
 		foreach($order as $item){
-			$tex .=  '\addorder{'.$item['amount'].'}{'.substr($item['name'],0,19).'}{'.helper::formatPriceLaTeX($item['amount']*$item['price']).'}'."\n";
+			$tex .=  '\addorder{'.$item['amount'].'}{'.$item['name'].'}{'.helper::formatPriceLaTeX($item['amount']*$item['price']).'}'."\n";
 			$total += ($item['amount']*$item['price']);
 		}
 		$tex .=  '\total{'.helper::formatPriceLaTeX($total).'}'."\n";
@@ -38,7 +38,10 @@ class Bon {
 		$fp = fopen('data/bon/'.$orderid.'.tex', 'w+');
 		fwrite($fp, $tex);
 		fclose($fp);
-		system("cd data/bon/; rm $orderid.pdf; pdflatex $orderid.tex; rm *.log; rm *.aux;");
+		if(file_exists('data/bon/'.$orderid.'.pdf')){
+			unlink('data/bon/'.$orderid.'.pdf');
+		}
+		system("cd data/bon/; pdflatex $orderid.tex; rm *.log; rm *.aux;");
 	}
 	
 	public static function printLaTeX($orderid) {
