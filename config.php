@@ -3,4 +3,6 @@
    "logofile" => "logo.png",
    "apiuser" => array(
    ),
-"alternatives_visible" => 3); ?>
+   "laserprinter" => "SamsungML1640",
+   "thermoprinter" => "starTSP143",
+   "alternatives_visible" => 3); ?>

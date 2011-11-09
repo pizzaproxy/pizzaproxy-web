@@ -49,6 +49,37 @@ class Order {
     
   }
   
+  public static function getOrder($orderid) {
+  
+  	$query = "select ". ProxyPizza::TABLE_NAME . ".id as pizzaid,
+  	". PizzaService::TABLE_NAME . ".phone as phone,
+  	". Pizza::TABLE_NAME . ".menunumber as menunumber,
+  	". Pizza::TABLE_NAME . ".price as realprice,
+  	". ProxyPizza::TABLE_NAME . ".name as name,
+  	". ProxyPizza::TABLE_NAME . ".price as price,
+  	". PizzaService::TABLE_NAME . ".name as service,
+  	". Order::TABLE_NAME . ".id as orderid,
+  	". Order::TABLE_NAME . ".status as status,
+  	". OrderProxy::TABLE_NAME . ".amount as amount,
+  	". OrderProxy::TABLE_NAME . ".id as orderproxyid
+  	from ". Order::TABLE_NAME ."
+  	left join ". OrderProxy::TABLE_NAME ."
+  	on ". Order::TABLE_NAME .".id = ". OrderProxy::TABLE_NAME .".orderid
+  	left join ". ProxyPizza::TABLE_NAME . "
+  	on  " . OrderProxy::TABLE_NAME . ".proxypizzaid = " . ProxyPizza::TABLE_NAME . ".id
+  	left join ". PizzaService::TABLE_NAME . "
+  	on  " . Order::TABLE_NAME . ".serviceid = " . PizzaService::TABLE_NAME . ".id
+  	left join ". Pizza::TABLE_NAME . "
+  	on " . Pizza::TABLE_NAME . ".proxyid = " . ProxyPizza::TABLE_NAME . ".id
+  	and ". Order::TABLE_NAME . ".serviceid = " . Pizza::TABLE_NAME . ".serviceid
+  	and ". Order::TABLE_NAME . ".id = " . $orderid;
+  
+  	$stmt = Database::pdo()->query($query);
+  	$result = $stmt->fetchAll();
+  	return $result;
+  
+  }
+  
   public static function getPrintOrders($serviceid, array $orders) {
     
     $ordersInStmt = array();

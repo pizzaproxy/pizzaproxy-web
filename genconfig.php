@@ -18,6 +18,8 @@ if (is_writable($configfile)) {
     $content  = "<?php return array(\n";
     $content .= '   "event" => "'.helper::readline("Eventname: ").'",'."\n";
     $content .= '   "logofile" => "'.helper::readline("Logoname (in img/): ").'",'."\n";
+    $content .= '   "laserprinter" => "'.helper::readline("Laserprinter Name (in CUPS): ").'",'."\n";
+    $content .= '   "thermoprinter" => "'.helper::readline("Thermoprinter Name (in CUPS): ").'",'."\n";
     $content .= '   "apiuser" => array('."\n";
     $answer = helper::readline("Add API Users? Y/n: ");
     if (in_array($answer,array("Y","y","YES","yes","\n",""))) {

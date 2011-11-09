@@ -13,6 +13,7 @@ PizzaProxy
   <a href="/index.php">Home</a>
   <a href="/index.php?action=order">Bestellungen</a>
   <a href="/index.php?action=preorder">Vorbestellungen</a>
+  <a href="/index.php?action=print">Ausdrucke</a>
   <a href="/index.php?action=admin">Administration</a>
   </div>
   <div style="clear: both;"></div>

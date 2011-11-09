@@ -40,13 +40,13 @@
     }
 	\newcommand{\addorder}[3]{
         \changefont{cmss}{bx}{n}\large#1x\hspace{-3mm}\changefont{cmss}{bx}{n}\large#2&
-        \changefont{cmss}{bx}{n}\large#3 \euro{} 
+        \changefont{cmss}{bx}{n}\large#3 
         \\
     }
 	\newcommand{\finishorder}{\end{longtable}}
 	\newcommand{\total}[1]{		
 		\\
-		\changefont{cmss}{bx}{n}\large TOTAL&\changefont{cmss}{bx}{n}\large#1 \euro{}
+		\changefont{cmss}{bx}{n}\large TOTAL&\changefont{cmss}{bx}{n}\large#1
 	}
     \newcommand{\beginfooter}{
         \begin{longtable}{c}
