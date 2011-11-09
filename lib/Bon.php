@@ -16,7 +16,9 @@ class Bon {
 	
 		$total = 0;
 		foreach($order as $item){
-			$tex .=  '\addorder{'.$item['amount'].'}{'.$item['name'].'}{'.helper::formatPriceLaTeX($item['amount']*$item['price']).'}'."\n";
+			$pizzaname = explode(" ", $item['name']);
+			$name = implode(" ", $pizzaname[0-2]);
+			$tex .=  '\addorder{'.$item['amount'].'}{'.$name.'}{'.helper::formatPriceLaTeX($item['amount']*$item['price']).'}'."\n";
 			$total += ($item['amount']*$item['price']);
 		}
 		$tex .=  '\total{'.helper::formatPriceLaTeX($total).'}'."\n";

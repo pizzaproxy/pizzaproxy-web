@@ -39,7 +39,7 @@
 		\begin{longtable}{lp{4cm}}
     }
 	\newcommand{\addorder}[3]{
-        \changefont{cmss}{bx}{n}\large#1x\hspace{-3mm}\changefont{cmss}{bx}{n}\large#2&
+        \changefont{cmss}{bx}{n}\large#1x\hspace{-3mm}\changefont{cmss}{bx}{n}\small#2&
         \changefont{cmss}{bx}{n}\large#3 
         \\
     }
