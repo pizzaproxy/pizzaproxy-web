@@ -16,14 +16,14 @@ class Bon {
 	
 		$total = 0;
 		foreach($order as $item){
-			$tex .=  '\addorder{'.$item['amount'].'}{'.$item['name'].'}{'.helper::formatPriceLaTeX($item['amount']*$item['price']).'}'."\n";
+			$tex .=  '\addorder{'.$item['amount'].'}{'.substr($item['name'],0,19).'}{'.helper::formatPriceLaTeX($item['amount']*$item['price']).'}'."\n";
 			$total += ($item['amount']*$item['price']);
 		}
 		$tex .=  '\total{'.helper::formatPriceLaTeX($total).'}'."\n";
 		$tex .=  '\finishorder'."\n";
 	
 		if(count($order) <= 10){
-			$tex .=  '\vspace{'.(100-(count($order['items'])*10)).'pt}';
+			$tex .=  '\vspace{'.(80-(count($order['items'])*8)).'pt}';
 		}
 		$tex .=  '\beginfooter'."\n";
 		$tex .=  '\addfooter{HTTP://PIZZAPROXY.ORG}'."\n";
