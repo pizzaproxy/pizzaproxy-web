@@ -14,6 +14,7 @@ include dirname(__FILE__) . '/lib/Pizza.php';
 include dirname(__FILE__) . '/lib/ProxyPizza.php';
 include dirname(__FILE__) . '/lib/PizzaService.php';
 include dirname(__FILE__) . '/lib/helper.class.php';
+include dirname(__FILE__) . '/lib/Bon.php';
 
 $notemplate = false;
 

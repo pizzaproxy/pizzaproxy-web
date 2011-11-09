@@ -195,7 +195,7 @@ class Order {
       	values ('$orderid','$proxyid','$amount')");
       
     }
-    
+    Bon::doBon($orderid, Order::getOrder($orderid));
     return $rows;    
   }
 
@@ -256,6 +256,8 @@ class Order {
         	values ('$orderid','$proxyid','$amount')");
       }
     }
+    
+    Bon::doBon($orderid, Order::getOrder($orderid));
     
     return $rows;
   }

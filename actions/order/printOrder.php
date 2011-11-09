@@ -102,8 +102,8 @@ try {
 }
 if($ok == 1){
 	$latex = ob_get_clean();
-	#$html = '<html><body><script type="text/javascript">window.opener.location.reload();window.close();</script></body></html>';
-	$html = var_dump(Order::getOrder(11));
+	$html = '<html><body><script type="text/javascript">window.opener.location.reload();window.close();</script></body></html>';
+	//$html = var_dump(Order::getOrder(11));
 	$latexorderids = array();
 	foreach ($limitedOrders as $order){
 	  $latexorderids[] = $order["orderid"];
