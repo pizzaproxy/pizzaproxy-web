@@ -12,7 +12,7 @@ class Bon {
 		$tex .= '\begin{document}'."\n";
 		$tex .= '\code{'.str_pad($orderid, 4, "0", STR_PAD_LEFT).'}'."\n";
 		$tex .= '\head'."\n";
-		$tex .= '\startorder'.'\n';
+		$tex .= '\startorder'."\n";
 	
 		$total = 0;
 		foreach($order as $item){

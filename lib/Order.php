@@ -72,7 +72,7 @@ class Order {
   	left join ". Pizza::TABLE_NAME . "
   	on " . Pizza::TABLE_NAME . ".proxyid = " . ProxyPizza::TABLE_NAME . ".id
   	and ". Order::TABLE_NAME . ".serviceid = " . Pizza::TABLE_NAME . ".serviceid
-  	and ". Order::TABLE_NAME . ".id = " . $orderid;
+  	where ". Order::TABLE_NAME . ".id = " . $orderid;
   
   	$stmt = Database::pdo()->query($query);
   	$result = $stmt->fetchAll();
