@@ -38,7 +38,7 @@ class Bon {
 		$fp = fopen('data/bon/'.$orderid.'.tex', 'w+');
 		fwrite($fp, $tex);
 		fclose($fp);
-		system("cd data/bon/; pdflatex $orderid.tex; rm *.log; rm *.aux;");
+		system("cd data/bon/; rm $orderid.pdf; pdflatex $orderid.tex; rm *.log; rm *.aux;");
 	}
 	
 	public static function printLaTeX($orderid) {
