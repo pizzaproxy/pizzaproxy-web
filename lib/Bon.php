@@ -41,7 +41,7 @@ class Bon {
 		if(file_exists('data/bon/'.$orderid.'.pdf')){
 			unlink('data/bon/'.$orderid.'.pdf');
 		}
-		system("cd data/bon/; pdflatex $orderid.tex; rm *.log; rm *.aux;");
+		exec("cd data/bon/; pdflatex $orderid.tex; rm *.log; rm *.aux;");
 	}
 	
 	public static function printLaTeX($orderid) {
