@@ -2,7 +2,9 @@
 
 if (key_exists("id", $_POST)) {
   
-  Order::markAsPayed($_POST["id"]);
+  $orderid = $_POST["id"];
+  Order::markAsPayed($orderid);
+  Bon::doBon($orderid, Order::getOrder($orderid));
   
 }
 
