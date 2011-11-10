@@ -5,7 +5,8 @@ ob_start();
 $zettel = array();
 $bon = array();
 
-if (is_dir("data/zettel/")) {
+$dir = "data/zettel/";
+if (is_dir($dir)) {
 	if ($dh = opendir($dir)) {
 		while (($file = readdir($dh)) !== false) {
 			if(strstr($file,"pdf")){
@@ -16,7 +17,8 @@ if (is_dir("data/zettel/")) {
 	}
 }
 
-if (is_dir("data/bon/")) {
+$dir = "data/bon/";
+if (is_dir($dir)) {
 	if ($dh = opendir($dir)) {
 		while (($file = readdir($dh)) !== false) {
 			if(strstr($file,"pdf")){
