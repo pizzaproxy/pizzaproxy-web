@@ -40,6 +40,9 @@ if (key_exists("action", $_GET)) {
   else if ($_GET["action"] == "preorder") {
     include 'actions/preorder/index.php';
   }
+  else if ($_GET["action"] == "print") {
+  	include 'actions/print/index.php';
+  }
   else if ($_GET["action"] == "printorder") {
     include 'actions/order/printOrder.php';
     $notemplate = true;
