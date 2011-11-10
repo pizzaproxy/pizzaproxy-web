@@ -50,7 +50,8 @@
 		\setlength\LTright{0pt}
 		\begin{longtable}{@{\extracolsep{0mm}}lrrc}				
 		\changefont{phv}{b}{sc}Bezeichnung&\changefont{phv}{b}{sc}Preis&\changefont{phv}{b}{sc}Total&\changefont{phv}{b}{sc}Erhalten\\[10pt]
-		\hline\\[-6.5pt]
+		\\[-6.5pt]
+		\hline
 	}
 	%Finish order
 	\newcommand{\finishorder}{		
@@ -59,7 +60,7 @@
 	%<quantity> <order code> <name> <price> <total>
 	\newcommand{\addorder}[5]{		
 		\\
-		\hline{}
+		\hline
 		\\	
 		\changefont{phv}{b}{n}#1x\hspace{-6pt}\changefont{phv}{m}{n}Nr. #2 "#3"&#4 &#5 &\addboxes{#1}\\[10pt]
 	}
@@ -101,6 +102,7 @@
 		&&#1 &\\[6pt]}
 	%Finish summary
 	\newcommand{\finishsummary}{
+		\\
 		\hline\hline		
 		\end{longtable}
 	}

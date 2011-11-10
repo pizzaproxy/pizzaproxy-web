@@ -105,7 +105,7 @@ if($ok == 1){
 	$html = '<html><body><script type="text/javascript">window.opener.location.reload();window.close();</script></body></html>';
 	//$html = var_dump(Order::getOrder(11));
 	$latexorderids = array();
-	foreach ($limitedOrders as $order){
+	foreach ($orders as $order){
 	  $latexorderids[] = $order["orderid"];
 	}
 	Order::markAsOrdered($latexorderids,$orderSerivce["id"]);
