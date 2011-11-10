@@ -48,7 +48,7 @@ class helper {
   	if($type == "zettel"){
   		echo "zettel";
   	}elseif($type == "bon"){
-  		echo "bon";
+  		exec("lp -d ".helper::getConfig("thermoprinter")." ".$filename);
   	}
   }
 
