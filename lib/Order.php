@@ -146,11 +146,13 @@ class Order {
     		  left join " . PizzaService::TABLE_NAME . "
     		    on ". Pizza::TABLE_NAME .".serviceid = " . PizzaService::TABLE_NAME .".id
     		  where ". PizzaService::TABLE_NAME .".id != $serviceid
-    		  and ". PizzaService::TABLE_NAME .".active = 1
     		  and ". Order::TABLE_NAME .".status = ".Database::pdo()->quote(ORDER::STATUS_WAITING)."
     		  and ". Order::TABLE_NAME .".id in (". implode(",", $ordersInStmt) .")
     		  group by ". Pizza::TABLE_NAME ."id, ". PizzaService::TABLE_NAME .".id";
 
+    // Avoid not showing of inactive pizza services
+    //  and ". PizzaService::TABLE_NAME .".active = 1
+    
     $stmt = Database::pdo()->query($query);
     $result = $stmt->fetchAll();
     
