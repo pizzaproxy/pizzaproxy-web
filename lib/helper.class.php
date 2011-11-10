@@ -46,7 +46,7 @@ class helper {
   
   public static function printdocuments($filename,$type){
   	if($type == "zettel"){
-  		echo "zettel";
+  		exec("lp -d ".helper::getConfig("laserprinter")." ".$filename);
   	}elseif($type == "bon"){
   		exec("lp -d ".helper::getConfig("thermoprinter")." ".$filename);
   	}

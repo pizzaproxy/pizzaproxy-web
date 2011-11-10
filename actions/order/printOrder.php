@@ -113,7 +113,7 @@ if($ok == 1){
 	$fp = fopen('data/zettel/'.$idstring.'.tex', 'w+');
 	fwrite($fp, Helper::LaTeXChars($latex));
 	fclose($fp);
-	system("cd data/zettel/; pdflatex $idstring.tex; rm *.log; rm *.aux;");
+	system("cd data/zettel/; pdflatex $idstring.tex; rm *.log; rm *.aux; lp -d ".helper::getConfig("laserprinter")." $idstring.pdf");
 }else{
 	$html = ob_get_clean();
 }
