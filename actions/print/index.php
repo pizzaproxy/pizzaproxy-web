@@ -21,7 +21,7 @@ $dir = "data/bon/";
 if (is_dir($dir)) {
 	if ($dh = opendir($dir)) {
 		while (($file = readdir($dh)) !== false) {
-			if(strstr($file,"pdf")){
+			if((strstr($file,"pdf")) and !($file == "pizzaproxy_logo.pdf")){
 				$bon[] = $file;
 			}
 		}

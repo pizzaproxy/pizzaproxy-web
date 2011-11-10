@@ -93,6 +93,9 @@ else if (key_exists("action", $_POST)) {
   else if ($_POST["action"] == "deletepreorder") {
     include 'actions/preorder/deletePreOrder.php';
   }
+  else if ($_POST["action"] == "printfile") {
+  	include 'actions/print/printfile.php';
+  }
   
 }
 else {

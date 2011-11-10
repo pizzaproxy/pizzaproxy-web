@@ -43,6 +43,14 @@ class helper {
       $config = include dirname(__FILE__).'/../config.php';
       return $config[$key];
   }
+  
+  public static function printdocuments($filename,$type){
+  	if($type == "zettel"){
+  		echo "zettel";
+  	}elseif($type == "bon"){
+  		echo "bon";
+  	}
+  }
 
   public static function readline($desc) {
       if(function_exists('readline')){
@@ -83,6 +91,7 @@ class helper {
   /**
    * end of foreign code
    */
-
+  
+  
 
 }
