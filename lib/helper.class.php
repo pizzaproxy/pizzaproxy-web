@@ -15,7 +15,7 @@ class helper {
   
   public static function LaTeXChars($tex){
   	$search  = array('ß', 'ö', 'ä', 'ü', 'Ö', 'Ä', 'Ü');
-  	$replace = array('\ss{}', '"o', '"a', '"u', '"O', '"A', '"U');
+  	$replace = array('\ss{}', '\"{o}', '\"{a}', '\"{u}', '\"{O}', '\"{A}', '\"{U}');
   	return str_replace($search, $replace, $tex);
   }
 
