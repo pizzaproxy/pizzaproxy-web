@@ -46,7 +46,7 @@ class Bon {
 	}
 	
 	public static function printLaTeX($orderid) {
-		exec("lp -d ".helper::getConfig("thermoprinter")." data/bon/".$oderid.".pdf");
+		exec("lp -d ".helper::getConfig("thermoprinter")." data/bon/".$orderid.".pdf");
 	}
 
 
