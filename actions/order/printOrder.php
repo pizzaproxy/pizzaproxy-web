@@ -109,7 +109,7 @@ if($ok == 1){
 	  $latexorderids[] = $order["orderid"];
 	}
 	Order::markAsOrdered($latexorderids,$orderSerivce["id"]);
-	$idstring = implode("-",$latexorderids);
+	$idstring = implode("-",array_unique($latexorderids));
 	$fp = fopen('data/zettel/'.$idstring.'.tex', 'w+');
 	fwrite($fp, Helper::LaTeXChars($latex));
 	fclose($fp);
