@@ -111,7 +111,7 @@ if($ok == 1){
 	Order::markAsOrdered($latexorderids,$orderSerivce["id"]);
 	$idstring = implode("-",$latexorderids);
 	$fp = fopen('data/zettel/'.$idstring.'.tex', 'w+');
-	fwrite($fp, $latex);
+	fwrite($fp, Helper::LaTeXChars($latex));
 	fclose($fp);
 	system("cd data/zettel/; pdflatex $idstring.tex; rm *.log; rm *.aux;");
 }else{

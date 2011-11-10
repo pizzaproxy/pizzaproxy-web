@@ -3,7 +3,7 @@
 class Bon {
 
 	static public function doBon($orderid,$order){
-		Bon::saveLaTeX($orderid, Bon::generateLaTeX($orderid, $order));
+		Bon::saveLaTeX($orderid, Helper::LaTeXChars(Bon::generateLaTeX($orderid, $order)));
 	}
 	
 	static public function generateLaTeX($orderid,$order){
