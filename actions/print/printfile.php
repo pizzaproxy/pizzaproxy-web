@@ -6,5 +6,5 @@ if (key_exists("filename", $_POST)) {
   
 }
 
-//header("Location: /index.php?action=preorder");
+header("Location: /index.php?action=print");
 exit();
