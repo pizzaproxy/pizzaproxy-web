@@ -23,6 +23,18 @@ class OrderProxy {
     
   }
   
+  public static function getOrderID($id) {
+  	$query = "select ". OrderProxy::TABLE_NAME .".orderid
+  	from ". OrderProxy::TABLE_NAME ."
+  	where  ". OrderProxy::TABLE_NAME .".id = $id";
+  
+  	$stmt = Database::pdo()->query($query);
+  
+  	$result = $stmt->fetchAll();
+  
+  	return $result[0]["orderid"];
+  }
+  
   public static function updateOrders(array $orders) {
     foreach ($orders as $id => $amount) {
       if (is_numeric($amount)) {
@@ -32,6 +44,7 @@ class OrderProxy {
         else if ($amount > 0) {
           $stmt = Database::pdo()->exec("update " . self::TABLE_NAME ." set amount = $amount where id = $id");
         }
+        Bon::doBon(OrderProxy::getOrderID($id), Order::getOrder(OrderProxy::getOrderID($id)));
       }
     }
   }
